@@ -58,31 +58,29 @@
       })(window, document)
     </script>
     <script type="text/javascript">
-      var account;
-  
+      var account
+
       // https://docs.walletconnect.com/quick-start/dapps/web3-provider
       var provider = new WalletConnectProvider.default({
         rpc: {
-          1: "https://cloudflare-eth.com/", // https://ethereumnodes.com/
-          137: "https://polygon-rpc.com/", // https://docs.polygon.technology/docs/develop/network-details/network/
+          1: 'https://cloudflare-eth.com/', // https://ethereumnodes.com/
+          137: 'https://polygon-rpc.com/', // https://docs.polygon.technology/docs/develop/network-details/network/
           // ...
-  
         },
         // bridge: 'https://bridge.walletconnect.org',
-      });
-  
+      })
+
       var connectWC = async () => {
-        await provider.enable();
-  
+        await provider.enable()
+
         //  Create Web3 instance
-        const web3 = new Web3(provider);
+        const web3 = new Web3(provider)
         window.w3 = web3
-  
-        var accounts  = await web3.eth.getAccounts(); // get all connected accounts
-        account = accounts[0]; // get the primary account
+
+        var accounts = await web3.eth.getAccounts() // get all connected accounts
+        account = accounts[0] // get the primary account
       }
-  
-  
+
       var sign = async (msg) => {
         if (w3) {
           return await w3.eth.personal.sign(msg, account)
@@ -90,7 +88,7 @@
           return false
         }
       }
-  
+
       var contract = async (abi, address) => {
         if (w3) {
           return new w3.eth.Contract(abi, address)
@@ -98,17 +96,29 @@
           return false
         }
       }
-  
+
       var disconnect = async () => {
         // Close provider session
         await provider.disconnect()
       }
-  
-  
-      var address = "0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1"
-      var abi = [{"inputs":[],"name":"count","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"increment","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"}]
-  
-  
+
+      var address = '0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1'
+      var abi = [
+        {
+          inputs: [],
+          name: 'count',
+          outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'increment',
+          outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+      ]
     </script>
     <style type="text/css">
       .donate-btn button {
@@ -121,7 +131,7 @@
         text-decoration: navajowhite;
         background: #262222;
         border: none;
-      }  
+      }
 
       .btn {
         padding: 18px 40px;
@@ -135,7 +145,11 @@
       }
 
       .gradient-bg {
-        background: linear-gradient(270deg,rgba(255,90,0,1) 0%,rgba(255,54,0,1) 100%);
+        background: linear-gradient(
+          270deg,
+          rgba(255, 90, 0, 1) 0%,
+          rgba(255, 54, 0, 1) 100%
+        );
         color: #fff;
       }
 
@@ -156,7 +170,7 @@
         align-items: center;
       }
 
-      .footer-logo .text-logo{
+      .footer-logo .text-logo {
         color: #fff;
         font-size: 1.3rem;
       }
@@ -204,7 +218,11 @@
             >
               <div class="site-branding d-flex align-items-center">
                 <a class="logoStyle" href="index-2.html" rel="home">
-                  <img src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png" width="50" alt="">
+                  <img
+                    src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png"
+                    width="50"
+                    alt=""
+                  />
                   <h4 class="text-logo">Building<span>Bridges</span></h4>
                 </a>
               </div>
@@ -247,19 +265,23 @@
                 >
                   <header class="entry-header">
                     <h1>Donate</h1>
-                    <h4>4 a better world</h4>
+                    <h4>
+                      For a better world help people who have had their lives
+                      and families torn apart by war
+                    </h4>
                   </header>
                   <div class="entry-content mt-4">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestibulum mauris quis aliquam. Integer
-                      accumsan sodales odio, id tempus ullamcorper
+                    <p s>
+                      Please donate today to help refugees, including those
+                      fleeing Ukraine, in desperate need of expert support.
                     </p>
                   </div>
                   <footer
                     class="entry-footer d-flex flex-wrap align-items-center mt-5"
                   >
-                    <button class="btn gradient-bg mr-2" onclick="connectWC()">Donate Now</button>
+                    <button class="btn gradient-bg mr-2" onclick="connectWC()">
+                      Donate Now
+                    </button>
                     <a href="#" class="btn orange-border">Read More</a>
                   </footer>
                 </div>
@@ -277,13 +299,15 @@
                 >
                   <header class="entry-header">
                     <h1>Donate</h1>
-                    <h4>4 a better world</h4>
+                    <h4>
+                      For a better world help people who have had their lives
+                      and families torn apart by war
+                    </h4>
                   </header>
                   <div class="entry-content mt-4">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestibulum mauris quis aliquam. Integer
-                      accumsan sodales odio, id tempus ullamcorper
+                    <p s>
+                      Please donate today to help refugees, including those
+                      fleeing Ukraine, in desperate need of expert support.
                     </p>
                   </div>
                   <footer
@@ -296,41 +320,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="swiper-slide hero-content-wrap">
-          <img src="images/hero2.webp" alt="" />
-          <div class="hero-content-overlay position-absolute w-100 h-100">
-            <div class="container h-100">
-              <div class="row h-100">
-                <div
-                  class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start"
-                >
-                  <header class="entry-header">
-                    <h1>Donate</h1>
-                    <h4>4 a better world</h4>
-                  </header>
-                  <div class="entry-content mt-4">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestibulum mauris quis aliquam. Integer
-                      accumsan sodales odio, id tempus ullamcorper
-                    </p>
-                  </div>
-                  <footer
-                    class="entry-footer d-flex flex-wrap align-items-center mt-5"
-                  >
-                    <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
-                    <a href="#" class="btn orange-border">Read More</a>
-                  </footer>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pagination-wrap position-absolute w-100">
-        <div class="container">
-          <div class="swiper-pagination"></div>
         </div>
       </div>
 
@@ -355,6 +344,7 @@
         ></span>
       </div>
     </div>
+
     <div class="home-page-icon-boxes">
       <div class="container">
         <div class="row">
@@ -370,15 +360,14 @@
                   alt=""
                 />
               </figure>
-              <header class="entry-header">
-                <h3 class="entry-title">Become a Volunteer</h3>
-              </header>
               <div class="entry-content">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris tempus vestib ulum mauris quis aliquam.
-                </p>
+                <h6>OUR IMPACT</h6>
               </div>
+              <header class="entry-header">
+                <h3 class="entry-title">
+                  We helped 10,780 refugees and asylum seekers last year
+                </h3>
+              </header>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4 mt-4 mt-lg-0">
@@ -393,15 +382,14 @@
                   alt=""
                 />
               </figure>
-              <header class="entry-header">
-                <h3 class="entry-title">Dance & Music</h3>
-              </header>
               <div class="entry-content">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris tempus vestib ulum mauris quis aliquam.
-                </p>
+                <h6>GET SUPPORT</h6>
               </div>
+              <header class="entry-header">
+                <h3 class="entry-title">
+                  Are you a refugee or asylum seeker in the UK & need help?
+                </h3>
+              </header>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4 mt-4 mt-lg-0">
@@ -416,15 +404,12 @@
                   alt=""
                 />
               </figure>
-              <header class="entry-header">
-                <h3 class="entry-title">Online Conference</h3>
-              </header>
               <div class="entry-content">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris tempus vestib ulum mauris quis aliquam.
-                </p>
+                <h6>GET THE FACTS</h6>
               </div>
+              <header class="entry-header">
+                <h3 class="entry-title">Looking for the facts about asylum?</h3>
+              </header>
             </div>
           </div>
         </div>
@@ -436,30 +421,25 @@
           <div class="col-12 col-lg-6 order-2 order-lg-1">
             <div class="welcome-content">
               <header class="entry-header">
-                <h2 class="entry-title">Wellcome to our Charity</h2>
+                <h1 class="entry-title">
+                  Donate to help refugees rebuild their lives
+                </h1>
               </header>
               <div class="entry-content mt-5">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris tempus vestib ulum mauris quis aliquam. Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Mauris tempus
-                  vestibulum mauris quis aliquam. Integer accumsan sodales odio,
-                  id tempus velit ullamcorper id. Quisque at erat eu libero
-                  consequat tempus. Quisque molestie convallis tempus. Ut semper
-                  purus metus, a euismod sapien sodales ac. Duis viverra
-                  eleifend fermentum.
-                </p>
+                <h4>
+                  We support refugees from the moment they are given the right
+                  to remain in the UK by the Home Office – from crisis support
+                  for those at risk of homelessness, to accessing health care
+                  and finding a job.
+                </h4>
               </div>
               <div class="entry-footer mt-5">
-                <a href="#" class="btn gradient-bg mr-2">Read More</a>
+                <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
               </div>
             </div>
           </div>
           <div class="col-12 col-lg-6 mt-4 order-1 order-lg-2">
-            <img
-              src="images/welcometocharity.jpg"
-              alt="welcome"
-            />
+            <img src="images/welcometocharity.jpg" alt="welcome" />
           </div>
         </div>
       </div>
@@ -467,114 +447,162 @@
     <div class="home-page-events">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-12">
             <div class="upcoming-events">
               <div class="section-heading">
-                <h2 class="entry-title">Upcoming Events</h2>
+                <h2 class="entry-title">Latest news and blogs</h2>
               </div>
-              <div class="event-wrap d-flex flex-wrap justify-content-between">
-                <figure class="m-0">
-                  <img
-                    src="images/xevent-1.jpg.pagespeed.ic.26MJsWIQIP.jpg"
-                    alt=""
-                  />
-                </figure>
-                <div class="event-content-wrap">
-                  <header
-                    class="entry-header d-flex flex-wrap align-items-center"
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                  <div
+                    class="event-wrap d-flex flex-wrap justify-content-between"
                   >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Fundraiser for Kids</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
+                    <figure class="m-0">
+                      <img
+                        src="images/xevent-1.jpg.pagespeed.ic.26MJsWIQIP.jpg"
+                        alt=""
+                      />
+                    </figure>
+                    <div class="event-content-wrap">
+                      <header
+                        class="entry-header d-flex flex-wrap align-items-center"
+                      >
+                        <h3 class="entry-title w-100 m-0">
+                          <a href="#"
+                            >Latest analysis of the UK asylum system…</a
+                          >
+                        </h3>
+                        <div class="posted-date">
+                          <a href="#">MARCH 15, 2022</a>
+                        </div>
+                      </header>
+                      <div class="entry-content">
+                        <p class="m-0">
+                          The latest analysis of the UKs asylum system has been
+                          published, including all relevant statistics and
+                          policy developments. The…
+                        </p>
+                      </div>
+                      <div class="entry-footer">
+                        <a href="#">Read More</a>
+                      </div>
                     </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
-                  </header>
-                  <div class="entry-content">
-                    <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris.
-                    </p>
-                  </div>
-                  <div class="entry-footer">
-                    <a href="#">Read More</a>
                   </div>
                 </div>
-              </div>
-              <div class="event-wrap d-flex flex-wrap justify-content-between">
-                <figure class="m-0">
-                  <img
-                    src="images/xevent-2.jpg.pagespeed.ic.6oz4s-K6rF.jpg"
-                    alt=""
-                  />
-                </figure>
-                <div class="event-content-wrap">
-                  <header
-                    class="entry-header d-flex flex-wrap align-items-center"
+                <div class="col-12 col-lg-6">
+                  <div
+                    class="event-wrap d-flex flex-wrap justify-content-between"
                   >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Bring water to the childrens</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
+                    <figure class="m-0">
+                      <img
+                        src="images/xevent-1.jpg.pagespeed.ic.26MJsWIQIP.jpg"
+                        alt=""
+                      />
+                    </figure>
+                    <div class="event-content-wrap">
+                      <header
+                        class="entry-header d-flex flex-wrap align-items-center"
+                      >
+                        <h3 class="entry-title w-100 m-0">
+                          <a href="#"
+                            >Latest analysis of the UK asylum system…</a
+                          >
+                        </h3>
+                        <div class="posted-date">
+                          <a href="#">MARCH 15, 2022</a>
+                        </div>
+                      </header>
+                      <div class="entry-content">
+                        <p class="m-0">
+                          The latest analysis of the UKs asylum system has been
+                          published, including all relevant statistics and
+                          policy developments. The…
+                        </p>
+                      </div>
+                      <div class="entry-footer">
+                        <a href="#">Read More</a>
+                      </div>
                     </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
-                  </header>
-                  <div class="entry-content">
-                    <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris.
-                    </p>
-                  </div>
-                  <div class="entry-footer">
-                    <a href="#">Read More</a>
                   </div>
                 </div>
-              </div>
-              <div class="event-wrap d-flex flex-wrap justify-content-between">
-                <figure class="m-0">
-                  <img
-                    src="images/xevent-3.jpg.pagespeed.ic.B6srRzSCfu.jpg"
-                    alt=""
-                  />
-                </figure>
-                <div class="event-content-wrap">
-                  <header
-                    class="entry-header d-flex flex-wrap align-items-center"
+                <div class="col-12 col-lg-6">
+                  <div
+                    class="event-wrap d-flex flex-wrap justify-content-between"
                   >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Bring water to the childrens</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
+                    <figure class="m-0">
+                      <img
+                        src="images/xevent-2.jpg.pagespeed.ic.6oz4s-K6rF.jpg"
+                        alt=""
+                      />
+                    </figure>
+                    <div class="event-content-wrap">
+                      <header
+                        class="entry-header d-flex flex-wrap align-items-center"
+                      >
+                        <h3 class="entry-title w-100 m-0">
+                          <a href="#"
+                            >Homes for Ukraine Scheme Refugee Council
+                            response</a
+                          >
+                        </h3>
+                        <div class="posted-date">
+                          <a href="#">MARCH 15, 2022</a>
+                        </div>
+                      </header>
+                      <div class="entry-content">
+                        <p class="m-0">
+                          In response to details revealed regarding the UK
+                          Government’s new ‘Homes for Ukraine Scheme’, Enver
+                          Solomon, CEO of the Refugee…
+                        </p>
+                      </div>
+                      <div class="entry-footer">
+                        <a href="#">Read More</a>
+                      </div>
                     </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
-                  </header>
-                  <div class="entry-content">
-                    <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris.
-                    </p>
                   </div>
-                  <div class="entry-footer">
-                    <a href="#">Read More</a>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div
+                    class="event-wrap d-flex flex-wrap justify-content-between"
+                  >
+                    <figure class="m-0">
+                      <img
+                        src="images/xevent-3.jpg.pagespeed.ic.B6srRzSCfu.jpg"
+                        alt=""
+                      />
+                    </figure>
+                    <div class="event-content-wrap">
+                      <header
+                        class="entry-header d-flex flex-wrap align-items-center"
+                      >
+                        <h3 class="entry-title w-100 m-0">
+                          <a href="#"
+                            >Easing of entry requirements for Ukrainian refugees
+                          </a>
+                        </h3>
+                        <div class="posted-date">
+                          <a href="#">MARCH 10, 2022</a>
+                        </div>
+                      </header>
+                      <div class="entry-content">
+                        <p class="m-0">
+                          In response to Priti Patel announcement regarding the
+                          easing of entry requirements for Ukrainian refugees,
+                          Andy Hewett, Head of Advocacy at
+                        </p>
+                      </div>
+                      <div class="entry-footer">
+                        <a href="#">Read More</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-12">
             <div class="featured-cause">
-              <div class="section-heading">
-                <h2 class="entry-title">Featured Cause</h2>
-              </div>
               <div class="cause-wrap d-flex flex-wrap justify-content-between">
                 <figure class="m-0">
                   <img
@@ -586,21 +614,20 @@
                   <header
                     class="entry-header d-flex flex-wrap align-items-center"
                   >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Fundraiser for Kids</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
-                    </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
+                    <h2 class="">
+                      <a href="#"
+                        >Show some compassion thousands urge Government to allow
+                        refugee children to reunite with their parents</a
+                      >
+                    </h2>
                   </header>
                   <div class="entry-content">
                     <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris. Lorem ipsum dolor sit
-                      amet, consectetur.
+                      Today, refugees and campaign groups handed in a petition
+                      to 10 Downing Street, backed by 36,500 members of the
+                      British public, urging the Government to allow child
+                      refugees who come to the UK to be reunited with their
+                      parents in safety.
                     </p>
                   </div>
                   <div class="entry-footer mt-5">
@@ -617,8 +644,18 @@
                   <div
                     class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
                   >
-                    <div class="fund-raised-total mt-4">Raised: $56 880</div>
-                    <div class="fund-raised-goal mt-4">Goal: $70 000</div>
+                    <div
+                      class="fund-raised-goal mt-4"
+                      style="color: #333; font-weight: 900"
+                    >
+                      Raised: $56 880
+                    </div>
+                    <div
+                      class="fund-raised-goal mt-4"
+                      style="color: #333; font-weight: 900"
+                    >
+                      Goal: $70 000
+                    </div>
                   </div>
                 </div>
               </div>
@@ -640,6 +677,7 @@
           <div class="col-12">
             <div class="swiper-container causes-slider">
               <div class="swiper-wrapper">
+                
                 <div class="swiper-slide">
                   <div class="cause-wrap">
                     <figure class="m-0">
@@ -658,153 +696,9 @@
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
                         <h3 class="entry-title w-100 m-0">
-                          <a href="#">Bring water to the childrens</a>
+                          <a href="#">Young people whose age was disputed got help with their claim</a>
                         </h3>
                       </header>
-                      <div class="entry-content">
-                        <p class="m-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Mauris tempus vestib ulum mauris.
-                        </p>
-                      </div>
-                      <div class="fund-raised w-100">
-                        <div class="fund-raised-bar-1 barfiller">
-                          <div class="tipWrap">
-                            <span class="tip"></span>
-                          </div>
-                          <span class="fill" data-percentage="83"></span>
-                        </div>
-                        <div
-                          class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
-                        >
-                          <div class="fund-raised-total mt-4">
-                            Raised: $56 880
-                          </div>
-                          <div class="fund-raised-goal mt-4">Goal: $70 000</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="cause-wrap">
-                    <figure class="m-0">
-                      <img
-                        src="images/xcause-2.jpg.pagespeed.ic.YJwyjrjHNt.jpg"
-                        alt=""
-                      />
-                      <div
-                        class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100"
-                      >
-                        <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
-                      </div>
-                    </figure>
-                    <div class="cause-content-wrap">
-                      <header
-                        class="entry-header d-flex flex-wrap align-items-center"
-                      >
-                        <h3 class="entry-title w-100 m-0">
-                          <a href="#">Education for all</a>
-                        </h3>
-                      </header>
-                      <div class="entry-content">
-                        <p class="m-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Mauris tempus vestib ulum mauris.
-                        </p>
-                      </div>
-                      <div class="fund-raised w-100">
-                        <div class="fund-raised-bar-2 barfiller">
-                          <div class="tipWrap">
-                            <span class="tip"></span>
-                          </div>
-                          <span class="fill" data-percentage="70"></span>
-                        </div>
-                        <div
-                          class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
-                        >
-                          <div class="fund-raised-total mt-4">
-                            Raised: $56 880
-                          </div>
-                          <div class="fund-raised-goal mt-4">Goal: $70 000</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="cause-wrap">
-                    <figure class="m-0">
-                      <img
-                        src="images/xcause-3.jpg.pagespeed.ic.NFC0pYYQ9n.jpg"
-                        alt=""
-                      />
-                      <div
-                        class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100"
-                      >
-                        <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
-                      </div>
-                    </figure>
-                    <div class="cause-content-wrap">
-                      <header
-                        class="entry-header d-flex flex-wrap align-items-center"
-                      >
-                        <h3 class="entry-title w-100 m-0">
-                          <a href="#">Bring water to the childrens</a>
-                        </h3>
-                      </header>
-                      <div class="entry-content">
-                        <p class="m-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Mauris tempus vestib ulum mauris.
-                        </p>
-                      </div>
-                      <div class="fund-raised w-100">
-                        <div class="fund-raised-bar-3 barfiller">
-                          <div class="tipWrap">
-                            <span class="tip"></span>
-                          </div>
-                          <span class="fill" data-percentage="83"></span>
-                        </div>
-                        <div
-                          class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
-                        >
-                          <div class="fund-raised-total mt-4">
-                            Raised: $56 880
-                          </div>
-                          <div class="fund-raised-goal mt-4">Goal: $70 000</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="cause-wrap">
-                    <figure class="m-0">
-                      <img
-                        src="images/xcause-1.jpg.pagespeed.ic.RNPfjTVF3d.jpg"
-                        alt=""
-                      />
-                      <div
-                        class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100"
-                      >
-                        <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
-                      </div>
-                    </figure>
-                    <div class="cause-content-wrap">
-                      <header
-                        class="entry-header d-flex flex-wrap align-items-center"
-                      >
-                        <h3 class="entry-title w-100 m-0">
-                          <a href="#">Bring water to the childrens</a>
-                        </h3>
-                      </header>
-                      <div class="entry-content">
-                        <p class="m-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Mauris tempus vestib ulum mauris.
-                        </p>
-                      </div>
                       <div class="fund-raised w-100">
                         <div class="fund-raised-bar-4 barfiller">
                           <div class="tipWrap">
@@ -815,10 +709,10 @@
                         <div
                           class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
                         >
-                          <div class="fund-raised-total mt-4">
+                          <div class="fund-raised-total mt-4" style="color: #333; font-weight: 900">
                             Raised: $56 880
                           </div>
-                          <div class="fund-raised-goal mt-4">Goal: $70 000</div>
+                          <div class="fund-raised-goal mt-4" style="color: #333; font-weight: 900">Goal: $70 000</div>
                         </div>
                       </div>
                     </div>
@@ -842,15 +736,9 @@
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
                         <h3 class="entry-title w-100 m-0">
-                          <a href="#">Education for all</a>
+                          <a href="#">Young people whose age was disputed got help with their claim</a>
                         </h3>
                       </header>
-                      <div class="entry-content">
-                        <p class="m-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Mauris tempus vestib ulum mauris.
-                        </p>
-                      </div>
                       <div class="fund-raised w-100">
                         <div class="fund-raised-bar-5 barfiller">
                           <div class="tipWrap">
@@ -861,10 +749,10 @@
                         <div
                           class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
                         >
-                          <div class="fund-raised-total mt-4">
+                          <div class="fund-raised-total mt-4" style="color: #333; font-weight: 900">
                             Raised: $56 880
                           </div>
-                          <div class="fund-raised-goal mt-4">Goal: $70 000</div>
+                          <div class="fund-raised-goal mt-4" style="color: #333; font-weight: 900">Goal: $70 000</div>
                         </div>
                       </div>
                     </div>
@@ -888,15 +776,9 @@
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
                         <h3 class="entry-title w-100 m-0">
-                          <a href="#">Bring water to the childrens</a>
+                          <a href="#">Children attend our youth development activities</a>
                         </h3>
                       </header>
-                      <div class="entry-content">
-                        <p class="m-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Mauris tempus vestib ulum mauris.
-                        </p>
-                      </div>
                       <div class="fund-raised w-100">
                         <div class="fund-raised-bar-6 barfiller">
                           <div class="tipWrap">
@@ -907,10 +789,10 @@
                         <div
                           class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
                         >
-                          <div class="fund-raised-total mt-4">
+                          <div class="fund-raised-total mt-4" style="color: #333; font-weight: 900">
                             Raised: $56 880
                           </div>
-                          <div class="fund-raised-goal mt-4">Goal: $70 000</div>
+                          <div class="fund-raised-goal mt-4" style="color: #333; font-weight: 900">Goal: $70 000</div>
                         </div>
                       </div>
                     </div>
@@ -958,10 +840,6 @@
                 We love to help all the children that have problems in the
                 world. After 15 years we have many goals achieved.
               </h2>
-              <p class="mt-5">
-                Dolor sit amet, consectetur adipiscing elit. Mauris tempus
-                vestib ulum mauris quis aliquam. Lorem ipsum dolor sit amet.
-              </p>
             </div>
           </div>
           <div class="col-12 col-lg-6">
@@ -1036,16 +914,21 @@
             <div class="col-12 col-md-6 col-lg-3">
               <div class="foot-about">
                 <h2>
-                  <a class="logoStyle footer-logo" href="index-2.html" rel="home">
-                    <img src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png" width="50" alt="">
+                  <a
+                    class="logoStyle footer-logo"
+                    href="index-2.html"
+                    rel="home"
+                  >
+                    <img
+                      src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png"
+                      width="50"
+                      alt=""
+                    />
                     <h4 class="text-logo">Building<span>Bridges</span></h4>
                   </a>
                 </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, con sectetur adipiscing elit.
-                  Mauris temp us vestib ulum mauris.Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Mauris tempus vestib ulum
-                  mauris.Lorem ipsum dolo.
+                  For a better world help people who have had their lives and families torn apart by war
                 </p>
                 <ul class="d-flex flex-wrap align-items-center">
                   <li>
@@ -1144,12 +1027,8 @@
                   data-cfasync="false"
                   src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
                 ></script>
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>
-                All rights reserved | This template is made with
-                <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+                
+                All rights reserved |
               </p>
             </div>
           </div>
