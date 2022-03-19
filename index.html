@@ -174,6 +174,12 @@
         color: #fff;
         font-size: 1.3rem;
       }
+
+      @media only screen and (max-width: 768px) {
+        #mobileHeight {
+          height: 60vh !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -255,7 +261,7 @@
     </header>
     <div class="swiper-container hero-slider">
       <div class="swiper-wrapper">
-        <div class="swiper-slide hero-content-wrap">
+        <div class="swiper-slide hero-content-wrap" id="mobileHeight">
           <img src="images/hero100.jpg" alt="" />
           <div class="hero-content-overlay position-absolute w-100 h-100">
             <div class="container h-100">
@@ -282,7 +288,6 @@
                     <button class="btn gradient-bg mr-2" onclick="connectWC()">
                       Donate Now
                     </button>
-                    <a href="#" class="btn orange-border">Read More</a>
                   </footer>
                 </div>
               </div>
@@ -454,9 +459,7 @@
               </div>
               <div class="row">
                 <div class="col-12 col-lg-6">
-                  <div
-                    class="event-wrap d-flex flex-wrap justify-content-between"
-                  >
+                  <div class="event-wrap d-flex flex-wrap justify-content-between">
                     <figure class="m-0">
                       <img
                         src="images/xevent-1.jpg.pagespeed.ic.26MJsWIQIP.jpg"
@@ -464,9 +467,7 @@
                       />
                     </figure>
                     <div class="event-content-wrap">
-                      <header
-                        class="entry-header d-flex flex-wrap align-items-center"
-                      >
+                      <header class="entry-header d-flex flex-wrap align-items-center">
                         <h3 class="entry-title w-100 m-0">
                           <a href="#"
                             >Latest analysis of the UK asylum system…</a
