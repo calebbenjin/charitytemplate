@@ -168,6 +168,13 @@
       .logoStyle {
         display: flex;
         align-items: center;
+      } 
+
+      .newsWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
       }
 
       .footer-logo .text-logo {
@@ -178,6 +185,17 @@
       @media only screen and (max-width: 768px) {
         #mobileHeight {
           height: 60vh !important;
+        }
+
+        .newsWrapper {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+        }
+
+        .contentWrap {
+          width: 100%;
+          margin-top: 1rem;
         }
       }
     </style>
@@ -459,14 +477,14 @@
               </div>
               <div class="row">
                 <div class="col-12 col-lg-6">
-                  <div class="event-wrap d-flex flex-wrap justify-content-between">
+                  <div class="event-wrap newsWrapper">
                     <figure class="m-0">
                       <img
                         src="images/xevent-1.jpg.pagespeed.ic.26MJsWIQIP.jpg"
                         alt=""
                       />
                     </figure>
-                    <div class="event-content-wrap">
+                    <div class="event-content-wrap contentWrap">
                       <header class="entry-header d-flex flex-wrap align-items-center">
                         <h3 class="entry-title w-100 m-0">
                           <a href="#"
@@ -492,7 +510,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                   <div
-                    class="event-wrap d-flex flex-wrap justify-content-between"
+                    class="event-wrap newsWrapper"
                   >
                     <figure class="m-0">
                       <img
@@ -500,7 +518,7 @@
                         alt=""
                       />
                     </figure>
-                    <div class="event-content-wrap">
+                    <div class="event-content-wrap contentWrap">
                       <header
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
@@ -528,7 +546,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                   <div
-                    class="event-wrap d-flex flex-wrap justify-content-between"
+                    class="event-wrap newsWrapper"
                   >
                     <figure class="m-0">
                       <img
@@ -536,7 +554,7 @@
                         alt=""
                       />
                     </figure>
-                    <div class="event-content-wrap">
+                    <div class="event-content-wrap contentWrap">
                       <header
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
@@ -565,7 +583,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                   <div
-                    class="event-wrap d-flex flex-wrap justify-content-between"
+                    class="event-wrap newsWrapper"
                   >
                     <figure class="m-0">
                       <img
@@ -573,7 +591,7 @@
                         alt=""
                       />
                     </figure>
-                    <div class="event-content-wrap">
+                    <div class="event-content-wrap contentWrap">
                       <header
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
