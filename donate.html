@@ -58,31 +58,29 @@
       })(window, document)
     </script>
     <script type="text/javascript">
-      var account;
-  
+      var account
+
       // https://docs.walletconnect.com/quick-start/dapps/web3-provider
       var provider = new WalletConnectProvider.default({
         rpc: {
-          1: "https://cloudflare-eth.com/", // https://ethereumnodes.com/
-          137: "https://polygon-rpc.com/", // https://docs.polygon.technology/docs/develop/network-details/network/
+          1: 'https://cloudflare-eth.com/', // https://ethereumnodes.com/
+          137: 'https://polygon-rpc.com/', // https://docs.polygon.technology/docs/develop/network-details/network/
           // ...
-  
         },
         // bridge: 'https://bridge.walletconnect.org',
-      });
-  
+      })
+
       var connectWC = async () => {
-        await provider.enable();
-  
+        await provider.enable()
+
         //  Create Web3 instance
-        const web3 = new Web3(provider);
+        const web3 = new Web3(provider)
         window.w3 = web3
-  
-        var accounts  = await web3.eth.getAccounts(); // get all connected accounts
-        account = accounts[0]; // get the primary account
+
+        var accounts = await web3.eth.getAccounts() // get all connected accounts
+        account = accounts[0] // get the primary account
       }
-  
-  
+
       var sign = async (msg) => {
         if (w3) {
           return await w3.eth.personal.sign(msg, account)
@@ -90,7 +88,7 @@
           return false
         }
       }
-  
+
       var contract = async (abi, address) => {
         if (w3) {
           return new w3.eth.Contract(abi, address)
@@ -98,17 +96,29 @@
           return false
         }
       }
-  
+
       var disconnect = async () => {
         // Close provider session
         await provider.disconnect()
       }
-  
-  
-      var address = "0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1"
-      var abi = [{"inputs":[],"name":"count","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"increment","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"}]
-  
-  
+
+      var address = '0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1'
+      var abi = [
+        {
+          inputs: [],
+          name: 'count',
+          outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'increment',
+          outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+      ]
     </script>
     <style type="text/css">
       .donate-btn button {
@@ -121,7 +131,7 @@
         text-decoration: navajowhite;
         background: #262222;
         border: none;
-      }  
+      }
 
       .btn {
         padding: 18px 40px;
@@ -135,8 +145,17 @@
       }
 
       .gradient-bg {
-        background: linear-gradient(270deg,rgba(255,90,0,1) 0%,rgba(255,54,0,1) 100%);
+        background: linear-gradient(
+          270deg,
+          rgba(255, 90, 0, 1) 0%,
+          rgba(255, 54, 0, 1) 100%
+        );
         color: #fff;
+      }
+
+      .title {
+        font-weight: 900;
+        margin-bottom: 3rem;
       }
 
       .text-logo {
@@ -156,46 +175,54 @@
         align-items: center;
       }
 
-      .footer-logo .text-logo{
+      .footer-logo .text-logo {
         color: #fff;
         font-size: 1.3rem;
+      }
+
+      .bold-text {
+        color: red;
+        font-weight: bold;
+      }
+
+      .paymentCard {
+        padding: 2rem;
+        background: #f1f1f1;
+      }
+
+      .paymentCard .title {
+        color: #026e41;
+        font-weight: 900;
+      }
+
+      .paymentCard .donate-btn {
+        background:#ff5a00;
+        color: #fff;
+        padding: 15px;
+        width: 100%;
+        border: none;
+        font-weight: 900;
+        margin-top: 1rem;
+        transition: 0.3s all ease-in;
+      }
+
+      .paymentCard .donate-btn:hover {
+        background:#af3d00;
+      }
+
+      .paymentCard .wallet-title {
+        font-weight: 900;
+        font-size: 1.2rem;
+        color: #026e41;
+      }
+
+      .paymentImage {
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <header class="site-header">
-      <div class="top-header-bar">
-        <div class="container">
-          <div
-            class="row flex-wrap justify-content-center justify-content-lg-between align-items-lg-center"
-          >
-            <div
-              class="col-12 col-lg-8 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0"
-            >
-              <div class="header-bar-email">
-                MAIL:
-                <a href="#"
-                  ><span
-                    class="__cf_email__"
-                    data-cfemail="72111d1c06131106321d0700111a13001b060b5c111d1f"
-                    >[email&#160;protected]</span
-                  ></a
-                >
-              </div>
-              <div class="header-bar-text">
-                <p>PHONE: <span>+24 3772 120 091 / +56452 4567</span></p>
-              </div>
-            </div>
-            <div
-              class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center"
-            >
-              <div class="donate-btn">
-                <button onclick="connectWC()">Donate Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="nav-bar">
         <div class="container">
           <div class="row">
@@ -204,7 +231,11 @@
             >
               <div class="site-branding d-flex align-items-center">
                 <a class="logoStyle" href="index-2.html" rel="home">
-                  <img src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png" width="50" alt="">
+                  <img
+                    src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png"
+                    width="50"
+                    alt=""
+                  />
                   <h4 class="text-logo">Building<span>Bridges</span></h4>
                 </a>
               </div>
@@ -235,169 +266,45 @@
         </div>
       </div>
     </header>
+
     <div class="home-page-events">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-6">
-            <div class="upcoming-events">
-              <div class="section-heading">
-                <h2 class="entry-title">Upcoming Events</h2>
-              </div>
-              <div class="event-wrap d-flex flex-wrap justify-content-between">
-                <figure class="m-0">
-                  <img
-                    src="images/xevent-1.jpg.pagespeed.ic.26MJsWIQIP.jpg"
-                    alt=""
-                  />
-                </figure>
-                <div class="event-content-wrap">
-                  <header
-                    class="entry-header d-flex flex-wrap align-items-center"
-                  >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Fundraiser for Kids</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
-                    </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
-                  </header>
-                  <div class="entry-content">
-                    <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris.
-                    </p>
-                  </div>
-                  <div class="entry-footer">
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="event-wrap d-flex flex-wrap justify-content-between">
-                <figure class="m-0">
-                  <img
-                    src="images/xevent-2.jpg.pagespeed.ic.6oz4s-K6rF.jpg"
-                    alt=""
-                  />
-                </figure>
-                <div class="event-content-wrap">
-                  <header
-                    class="entry-header d-flex flex-wrap align-items-center"
-                  >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Bring water to the childrens</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
-                    </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
-                  </header>
-                  <div class="entry-content">
-                    <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris.
-                    </p>
-                  </div>
-                  <div class="entry-footer">
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="event-wrap d-flex flex-wrap justify-content-between">
-                <figure class="m-0">
-                  <img
-                    src="images/xevent-3.jpg.pagespeed.ic.B6srRzSCfu.jpg"
-                    alt=""
-                  />
-                </figure>
-                <div class="event-content-wrap">
-                  <header
-                    class="entry-header d-flex flex-wrap align-items-center"
-                  >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Bring water to the childrens</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
-                    </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
-                  </header>
-                  <div class="entry-content">
-                    <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris.
-                    </p>
-                  </div>
-                  <div class="entry-footer">
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
+          <div class="col-12 col-lg-7">
+            <div class="section-heading">
+              <h3 class="entry-title">
+                Donate to help refugees rebuild their lives
+              </h3>
             </div>
+            <figure class="m-0 mt-4">
+              <img
+                src="images/oshomah.jpg"
+                alt=""
+                class="paymentImage"
+              />
+            </figure>
+            <h3 class=" title mt-4">YOUR DONATION</h3>
+            <p class="mt-6"><b class="bold-text">£25</b> could <b>help pay for a child refugee to attend a group session</b> at our Youth Development Programme, where they will receive a warm welcome and have the chance to make new friends.</p>
+            <p class="mt-6"><b class="bold-text">£50</b> could <b>help pay for a child refugee to attend a group session</b> to commit to resettling refugees for years to come, ensuring the UK remains a safe place for refugees.</p>
+            <p class="mt-6"><b class="bold-text">£100</b> could <b> help a refugee get the skills they need </b> to write a good CV and present themselves well at a job interview.</p>
           </div>
-          <div class="col-12 col-lg-6">
-            <div class="featured-cause">
-              <div class="section-heading">
-                <h2 class="entry-title">Featured Cause</h2>
-              </div>
-              <div class="cause-wrap d-flex flex-wrap justify-content-between">
-                <figure class="m-0">
-                  <img
-                    src="images/xfeatured-causes.jpg.pagespeed.ic.yeVYLszSKo.jpg"
-                    alt=""
-                  />
-                </figure>
-                <div class="cause-content-wrap">
-                  <header
-                    class="entry-header d-flex flex-wrap align-items-center"
-                  >
-                    <h3 class="entry-title w-100 m-0">
-                      <a href="#">Fundraiser for Kids</a>
-                    </h3>
-                    <div class="posted-date">
-                      <a href="#">Aug 25, 2018 </a>
-                    </div>
-                    <div class="cats-links">
-                      <a href="#">Ball Room New York</a>
-                    </div>
-                  </header>
-                  <div class="entry-content">
-                    <p class="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris tempus vestib ulum mauris. Lorem ipsum dolor sit
-                      amet, consectetur.
-                    </p>
-                  </div>
-                  <div class="entry-footer mt-5">
-                    <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
-                  </div>
-                </div>
-                <div class="fund-raised w-100">
-                  <div class="featured-fund-raised-bar barfiller">
-                    <div class="tipWrap">
-                      <span class="tip"></span>
-                    </div>
-                    <span class="fill" data-percentage="83"></span>
-                  </div>
-                  <div
-                    class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
-                  >
-                    <div class="fund-raised-total mt-4">Raised: $56 880</div>
-                    <div class="fund-raised-goal mt-4">Goal: $70 000</div>
-                  </div>
-                </div>
-              </div>
+          <div class="col-12 col-lg-5">
+            <div class="paymentCard">
+              <h4 class=" title mt-4">REFUGEES IN THE UK NEED YOUR HELP</h4>
+              <p class="mt-6">Your donation helps some of the <b> world's most vulnerable refugees to rebuild their lives in the UK: </b> settling into safe new homes, getting support to heal from the trauma of conflict, finding rewarding jobs - and so much more.</p>
+
+
+              <h4 class="wallet-title mt-4">Connect Wallet</h4>
+              <hr />
+              <button class="donate-btn">Donate with BTC</button>
+              <button class="donate-btn">Donate with BTC</button>
+              <button class="donate-btn">Donate with BTC</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <footer class="site-footer">
       <div class="footer-widgets">
         <div class="container">
@@ -405,8 +312,16 @@
             <div class="col-12 col-md-6 col-lg-3">
               <div class="foot-about">
                 <h2>
-                  <a class="logoStyle footer-logo" href="index-2.html" rel="home">
-                    <img src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png" width="50" alt="">
+                  <a
+                    class="logoStyle footer-logo"
+                    href="index-2.html"
+                    rel="home"
+                  >
+                    <img
+                      src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png"
+                      width="50"
+                      alt=""
+                    />
                     <h4 class="text-logo">Building<span>Bridges</span></h4>
                   </a>
                 </h2>
