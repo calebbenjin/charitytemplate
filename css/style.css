@@ -1,0 +1,40 @@
+.whatsAppContainer {
+  position: fixed;
+  right: 3rem;
+  bottom: 4rem;
+  border-radius: 3rem;
+  z-index: 9;
+  background: #25D366;
+  padding: 1rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s all ease-in;
+  font-weight: 900;
+  color: #fff !important;
+}
+
+.whatsAppContainer:hover {
+  background: #5bdd8b;
+  text-decoration: none;
+}
+
+.whatsAppContainer:hover i {
+  font-size: 2.5rem;
+}
+
+.whatsAppContainer i {
+  font-size: 2rem;
+  margin-right: 1rem;
+  transition: 0.5s all ease-in;
+}
+
+@media(max-width: 768px) {
+  .whatsAppContainer {
+    padding: 0.7rem 2rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
