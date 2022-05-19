@@ -2,22 +2,30 @@
 <html lang="en">
   <!-- Mirrored from preview.colorlib.com/theme/thecharity/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Mar 2022 08:08:34 GMT -->
   <head>
-    <title>Hello World</title>
+    <title>Building Bridges</title>
 
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.1/dist/umd/index.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
     <link
       rel="stylesheet"
       href="css/A.bootstrap.min.css%2bfont-awesome.min.css%2belegant-fonts.css%2bthemify-icons.css%2bswiper.min.css%2cMcc.BgW-eGVxh5.css.pagespeed.cf.z1yXREZTTN.css"
     />
 
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <link rel="stylesheet" href="A.style.css.pagespeed.cf.5NtMCPMuKO.css" />
-    <script nonce="d45cc479-54ee-48d3-9282-85be8e6b36ea">
+    <script nonce="b4cab2e0-e709-478e-8aad-13e88ede8a69">
       ;(function (w, d) {
         !(function (a, e, t, r, z) {
           ;(a.zarazData = a.zarazData || {}),
@@ -57,175 +65,6 @@
         })(w, d, 0, 'script')
       })(window, document)
     </script>
-    <script type="text/javascript">
-      var account
-
-      // https://docs.walletconnect.com/quick-start/dapps/web3-provider
-      var provider = new WalletConnectProvider.default({
-        rpc: {
-          1: 'https://cloudflare-eth.com/', // https://ethereumnodes.com/
-          137: 'https://polygon-rpc.com/', // https://docs.polygon.technology/docs/develop/network-details/network/
-          // ...
-        },
-        // bridge: 'https://bridge.walletconnect.org',
-      })
-
-      var connectWC = async () => {
-        await provider.enable()
-
-        //  Create Web3 instance
-        const web3 = new Web3(provider)
-        window.w3 = web3
-
-        var accounts = await web3.eth.getAccounts() // get all connected accounts
-        account = accounts[0] // get the primary account
-      }
-
-      var sign = async (msg) => {
-        if (w3) {
-          return await w3.eth.personal.sign(msg, account)
-        } else {
-          return false
-        }
-      }
-
-      var contract = async (abi, address) => {
-        if (w3) {
-          return new w3.eth.Contract(abi, address)
-        } else {
-          return false
-        }
-      }
-
-      var disconnect = async () => {
-        // Close provider session
-        await provider.disconnect()
-      }
-
-      var address = '0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1'
-      var abi = [
-        {
-          inputs: [],
-          name: 'count',
-          outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-          stateMutability: 'view',
-          type: 'function',
-        },
-        {
-          inputs: [],
-          name: 'increment',
-          outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-          stateMutability: 'nonpayable',
-          type: 'function',
-        },
-      ]
-    </script>
-    <style type="text/css">
-      .donate-btn button {
-        display: inline-block;
-        padding: 20px 40px;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1;
-        color: #fff;
-        text-decoration: navajowhite;
-        background: #262222;
-        border: none;
-      }
-
-      .btn {
-        padding: 18px 40px;
-        border: 2px solid #262626;
-        border-radius: 24px;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1;
-        color: #262626;
-        outline: none;
-      }
-
-      .gradient-bg{
-        background: linear-gradient(
-          270deg,
-          rgba(255, 90, 0, 1) 0%,
-          rgba(255, 54, 0, 1) 100%
-        );
-        color: #fff;
-        transition: 0.5s all ease-in;
-        padding: 1rem 3rem;
-        text-transform: uppercase;
-        font-weight: 900;
-      }
-
-      .gradient-bg:hover {
-        text-decoration: none;
-        padding: 1rem 4rem;
-      }
-
-      .text-logo {
-        color: #333;
-        font-weight: 900;
-        margin: 0;
-        margin-left: 0.6rem;
-        margin-top: 1rem;
-      }
-
-      .text-logo span {
-        color: #ff5a00;
-      }
-
-      .logoStyle {
-        display: flex;
-        align-items: center;
-      } 
-
-      .newsWrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-
-      .footer-logo .text-logo {
-        color: #fff;
-        font-size: 1.3rem;
-      }
-
-      @media only screen and (max-width: 768px) {
-        #mobileHeight {
-          height: 70vh !important;
-        }
-
-        .logoStyle img{
-          width: 30px;
-        } 
-
-        .text-logo {
-          color: #333;
-          font-weight: 900;
-          font-size: 1rem;
-          margin: 0;
-          margin-left: 0.6rem;
-          margin-top: 1rem;
-        }
-
-        .newsWrapper {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-        }
-
-        #blogImg {
-          width: 360px !important;
-          margin: 0 auto;
-        }
-
-        .contentWrap {
-          width: 100%;
-          margin-top: 1rem;
-        }
-      }
-    </style>
   </head>
   <body>
     <header class="site-header">
@@ -242,25 +81,31 @@
                 <a href="#"
                   ><span
                     class="__cf_email__"
-                    data-cfemail="72111d1c06131106321d0700111a13001b060b5c111d1f"
-                    >[email&#160;protected]</span
+                    data-cfemail="3a5955544e5b594e7a554f4859525b48534e4314595557"
+                    >book.buildingbridges@hotmail.com</span
                   ></a
                 >
-              </div>
-              <div class="header-bar-text">
-                <p>PHONE: <span>+24 3772 120 091 / +56452 4567</span></p>
               </div>
             </div>
             <div
               class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center"
             >
               <div class="donate-btn">
-                <a href="/donate.html" class="">Donate Now</a>
+                <a href="donate.html">Donate Now</a>
               </div>
+              <a
+                href="https://wa.link/ec4zhl"
+                class="whatsAppContainer"
+                target="_blank"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+                Live chat
+              </a>
             </div>
           </div>
         </div>
       </div>
+
       <div class="nav-bar">
         <div class="container">
           <div class="row">
@@ -268,14 +113,12 @@
               class="col-12 d-flex flex-wrap justify-content-between align-items-center"
             >
               <div class="site-branding d-flex align-items-center">
-                <a class="logoStyle" href="index-2.html" rel="home">
-                  <img
-                    src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png"
-                    width="50"
-                    alt=""
-                  />
-                  <h4 class="text-logo">Building<span>Bridges</span></h4>
-                </a>
+                <a class="d-block" href="index.html" rel="home"
+                  ><img
+                    class="d-block"
+                    src="images/xlogo.png.pagespeed.ic.jje9n1Rfdy.png"
+                    alt="logo"
+                /></a>
               </div>
               <nav
                 class="site-navigation d-flex justify-content-end align-items-center"
@@ -284,12 +127,10 @@
                   class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center"
                 >
                   <li class="current-menu-item">
-                    <a href="index-2.html">Home</a>
+                    <a href="index.html">Home</a>
                   </li>
                   <li><a href="about.html">About us</a></li>
                   <li><a href="causes.html">Causes</a></li>
-                  <li><a href="portfolio.html">Gallery</a></li>
-                  <li><a href="news.html">News</a></li>
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </nav>
@@ -316,8 +157,8 @@
                 >
                   <header class="entry-header">
                     <h4>
-                      Donate for a better world help people who have had their lives
-                      and families torn apart by war
+                      Donate for a better world help people who have had their
+                      lives and families torn apart by war
                     </h4>
                   </header>
                   <div class="entry-content mt-4">
@@ -329,8 +170,9 @@
                   <footer
                     class="entry-footer d-flex flex-wrap align-items-center mt-5"
                   >
-                  
-                    <a href="/donate.html" class="btn gradient-bg mr-2">Donate Now</a>
+                    <a href="/donate.html" class="btn gradient-bg mr-2"
+                      >Donate Now</a
+                    >
                   </footer>
                 </div>
               </div>
@@ -360,7 +202,9 @@
                   <footer
                     class="entry-footer d-flex flex-wrap align-items-center mt-5"
                   >
-                  <a href="/donate.html" class="btn gradient-bg mr-2">Donate Now</a>
+                    <a href="/donate.html" class="btn gradient-bg mr-2"
+                      >Donate Now</a
+                    >
                   </footer>
                 </div>
               </div>
@@ -480,7 +324,9 @@
                 </h4>
               </div>
               <div class="entry-footer mt-5">
-                <a href="donate.html" class="btn gradient-bg mr-2">Donate Now</a>
+                <a href="donate.html" class="btn gradient-bg mr-2"
+                  >Donate Now</a
+                >
               </div>
             </div>
           </div>
@@ -490,7 +336,7 @@
         </div>
       </div>
     </div>
-    <div class="home-page-events">
+    <!-- <div class="home-page-events">
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-12">
@@ -504,41 +350,6 @@
                     <figure class="m-0">
                       <img
                         src="images/xcause-2.jpg.pagespeed.ic.YJwyjrjHNt.jpg"
-                        alt=""
-                        id="blogImg"
-                      />
-                    </figure>
-                    <div class="event-content-wrap contentWrap">
-                      <header class="entry-header d-flex flex-wrap align-items-center">
-                        <h3 class="entry-title w-100 m-0">
-                          <a href="#"
-                            >Latest analysis of the UK asylum system…</a
-                          >
-                        </h3>
-                        <div class="posted-date">
-                          <a href="#">MARCH 15, 2022</a>
-                        </div>
-                      </header>
-                      <div class="entry-content">
-                        <p class="m-0">
-                          The latest analysis of the UKs asylum system has been
-                          published, including all relevant statistics and
-                          policy developments. The…
-                        </p>
-                      </div>
-                      <div class="entry-footer">
-                        <a href="#">Read More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                  <div
-                    class="event-wrap newsWrapper"
-                  >
-                    <figure class="m-0">
-                      <img
-                        src="images/cause-6.jpg"
                         alt=""
                         id="blogImg"
                       />
@@ -570,9 +381,38 @@
                   </div>
                 </div>
                 <div class="col-12 col-lg-6">
-                  <div
-                    class="event-wrap newsWrapper"
-                  >
+                  <div class="event-wrap newsWrapper">
+                    <figure class="m-0">
+                      <img src="images/cause-6.jpg" alt="" id="blogImg" />
+                    </figure>
+                    <div class="event-content-wrap contentWrap">
+                      <header
+                        class="entry-header d-flex flex-wrap align-items-center"
+                      >
+                        <h3 class="entry-title w-100 m-0">
+                          <a href="#"
+                            >Latest analysis of the UK asylum system…</a
+                          >
+                        </h3>
+                        <div class="posted-date">
+                          <a href="#">MARCH 15, 2022</a>
+                        </div>
+                      </header>
+                      <div class="entry-content">
+                        <p class="m-0">
+                          The latest analysis of the UKs asylum system has been
+                          published, including all relevant statistics and
+                          policy developments. The…
+                        </p>
+                      </div>
+                      <div class="entry-footer">
+                        <a href="#">Read More</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="event-wrap newsWrapper">
                     <figure class="m-0">
                       <img
                         src="images/xhero.jpg.pagespeed.ic.UlXoS3GVLR.jpg"
@@ -608,15 +448,9 @@
                   </div>
                 </div>
                 <div class="col-12 col-lg-6">
-                  <div
-                    class="event-wrap newsWrapper"
-                  >
+                  <div class="event-wrap newsWrapper">
                     <figure class="m-0">
-                      <img
-                        src="images/hero2.webp"
-                        alt=""
-                        id="blogImg"
-                      />
+                      <img src="images/hero2.webp" alt="" id="blogImg" />
                     </figure>
                     <div class="event-content-wrap contentWrap">
                       <header
@@ -678,7 +512,9 @@
                     </p>
                   </div>
                   <div class="entry-footer mt-5">
-                    <a href="donate.html" class="btn gradient-bg mr-2">Donate Now</a>
+                    <a href="donate.html" class="btn gradient-bg mr-2"
+                      >Donate Now</a
+                    >
                   </div>
                 </div>
                 <div class="fund-raised w-100">
@@ -710,7 +546,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="our-causes">
       <div class="container">
         <div class="row">
@@ -724,7 +560,6 @@
           <div class="col-12">
             <div class="swiper-container causes-slider">
               <div class="swiper-wrapper">
-                
                 <div class="swiper-slide">
                   <div class="cause-wrap">
                     <figure class="m-0">
@@ -735,7 +570,9 @@
                       <div
                         class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100"
                       >
-                        <a href="donate.html" class="btn gradient-bg mr-2">Donate Now</a>
+                        <a href="donate.html" class="btn gradient-bg mr-2"
+                          >Donate Now</a
+                        >
                       </div>
                     </figure>
                     <div class="cause-content-wrap">
@@ -743,7 +580,10 @@
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
                         <h3 class="entry-title w-100 m-0">
-                          <a href="#">Young people whose age was disputed got help with their claim</a>
+                          <a href="#"
+                            >Young people whose age was disputed got help with
+                            their claim</a
+                          >
                         </h3>
                       </header>
                       <div class="fund-raised w-100">
@@ -756,10 +596,18 @@
                         <div
                           class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
                         >
-                          <div class="fund-raised-total mt-4" style="color: #333; font-weight: 900">
+                          <div
+                            class="fund-raised-total mt-4"
+                            style="color: #333; font-weight: 900"
+                          >
                             Raised: $56 880
                           </div>
-                          <div class="fund-raised-goal mt-4" style="color: #333; font-weight: 900">Goal: $70 000</div>
+                          <div
+                            class="fund-raised-goal mt-4"
+                            style="color: #333; font-weight: 900"
+                          >
+                            Goal: $70 000
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -775,7 +623,9 @@
                       <div
                         class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100"
                       >
-                        <a href="donate.html" class="btn gradient-bg mr-2">Donate Now</a>
+                        <a href="donate.html" class="btn gradient-bg mr-2"
+                          >Donate Now</a
+                        >
                       </div>
                     </figure>
                     <div class="cause-content-wrap">
@@ -783,7 +633,10 @@
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
                         <h3 class="entry-title w-100 m-0">
-                          <a href="#">Young people whose age was disputed got help with their claim</a>
+                          <a href="#"
+                            >Young people whose age was disputed got help with
+                            their claim</a
+                          >
                         </h3>
                       </header>
                       <div class="fund-raised w-100">
@@ -796,10 +649,18 @@
                         <div
                           class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
                         >
-                          <div class="fund-raised-total mt-4" style="color: #333; font-weight: 900">
+                          <div
+                            class="fund-raised-total mt-4"
+                            style="color: #333; font-weight: 900"
+                          >
                             Raised: $56 880
                           </div>
-                          <div class="fund-raised-goal mt-4" style="color: #333; font-weight: 900">Goal: $70 000</div>
+                          <div
+                            class="fund-raised-goal mt-4"
+                            style="color: #333; font-weight: 900"
+                          >
+                            Goal: $70 000
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -815,7 +676,9 @@
                       <div
                         class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100"
                       >
-                        <a href="donate.html" class="btn gradient-bg mr-2">Donate Now</a>
+                        <a href="donate.html" class="btn gradient-bg mr-2"
+                          >Donate Now</a
+                        >
                       </div>
                     </figure>
                     <div class="cause-content-wrap">
@@ -823,7 +686,9 @@
                         class="entry-header d-flex flex-wrap align-items-center"
                       >
                         <h3 class="entry-title w-100 m-0">
-                          <a href="#">Children attend our youth development activities</a>
+                          <a href="#"
+                            >Children attend our youth development activities</a
+                          >
                         </h3>
                       </header>
                       <div class="fund-raised w-100">
@@ -836,10 +701,18 @@
                         <div
                           class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center"
                         >
-                          <div class="fund-raised-total mt-4" style="color: #333; font-weight: 900">
+                          <div
+                            class="fund-raised-total mt-4"
+                            style="color: #333; font-weight: 900"
+                          >
                             Raised: $56 880
                           </div>
-                          <div class="fund-raised-goal mt-4" style="color: #333; font-weight: 900">Goal: $70 000</div>
+                          <div
+                            class="fund-raised-goal mt-4"
+                            style="color: #333; font-weight: 900"
+                          >
+                            Goal: $70 000
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -961,42 +834,16 @@
             <div class="col-12 col-md-6 col-lg-3">
               <div class="foot-about">
                 <h2>
-                  <a
-                    class="logoStyle footer-logo"
-                    href="index-2.html"
-                    rel="home"
-                  >
-                    <img
-                      src="images/xdonation.png.pagespeed.ic.J312XzHSQN.png"
-                      width="50"
+                  <a class="foot-logo" href="#"
+                    ><img
+                      src="images/xfoot-logo.png.pagespeed.ic.QzKNgHQNJQ.png"
                       alt=""
-                    />
-                    <h4 class="text-logo">Building<span>Bridges</span></h4>
-                  </a>
+                  /></a>
                 </h2>
                 <p>
-                  For a better world help people who have had their lives and families torn apart by war
+                  Building Bridges is involved in nearly 1500 communities across more than 25 countries and territories worldwide. We are focused on helping individuals whose homes have been ravaged by war and natural disasters. 
+                  We envision a world where children and their families are not homeless,hungry,uneducated,sick etc because of the adverse effects of wars and natural disasters.
                 </p>
-                <ul class="d-flex flex-wrap align-items-center">
-                  <li>
-                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-behance"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                  </li>
-                </ul>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
@@ -1017,15 +864,15 @@
                 <ul>
                   <li>
                     <h3><a href="#">A new cause to help</a></h3>
-                    <div class="posted-date">MArch 12, 2018</div>
+                    <div class="posted-date">March 12, 2022</div>
                   </li>
                   <li>
                     <h3><a href="#">We love to help people</a></h3>
-                    <div class="posted-date">MArch 12, 2018</div>
+                    <div class="posted-date">March 12, 2022</div>
                   </li>
                   <li>
                     <h3><a href="#">The new ideas for helping</a></h3>
-                    <div class="posted-date">MArch 12, 2018</div>
+                    <div class="posted-date">March 12, 2022</div>
                   </li>
                 </ul>
               </div>
@@ -1035,7 +882,7 @@
                 <h2>Contact</h2>
                 <ul>
                   <li>
-                    <i class="fa fa-phone"></i><span>+45 677 8993000 223</span>
+                    <i class="fa fa-phone"></i><span>+44 7538 632 846</span>
                   </li>
                   <li>
                     <i class="fa fa-envelope"></i
@@ -1043,8 +890,8 @@
                       ><a
                         href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
                         class="__cf_email__"
-                        data-cfemail="274841414e44426753424a574b4653420944484a"
-                        >[email&#160;protected]</a
+                        data-cfemail="412e27272822240135242c312d2035246f222e2c"
+                        >book.buildingbridges@hotmail.com</a
                       ></span
                     >
                   </li>
@@ -1074,8 +921,12 @@
                   data-cfasync="false"
                   src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
                 ></script>
-                
-                All rights reserved |
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>
+                All rights reserved | This template is made with
+                <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                <a href="https://colorlib.com/" target="_blank">Colorlib</a>
               </p>
             </div>
           </div>
