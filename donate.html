@@ -15,6 +15,12 @@
       rel="stylesheet"
       href="css/A.bootstrap.min.css%2bfont-awesome.min.css%2belegant-fonts.css%2bthemify-icons.css%2bswiper.min.css%2cMcc.BgW-eGVxh5.css.pagespeed.cf.z1yXREZTTN.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
 
     <link rel="stylesheet" href="A.style.css.pagespeed.cf.5NtMCPMuKO.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -66,6 +72,26 @@
       })(window, document)
     </script>
     <script type="text/javascript">
+
+      const copyWallet = () => {
+        /* Get the text field */
+          var copyText = document.getElementById("walletAddress");
+          var isCopied = document.getElementById("isCopied");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+
+        /* Alert the copied text */
+        let showAlert = true
+        if(showAlert) {
+
+        }
+      }
+
       var account
 
       // https://docs.walletconnect.com/quick-start/dapps/web3-provider
@@ -75,7 +101,7 @@
           137: 'https://polygon-rpc.com/', // https://docs.polygon.technology/docs/develop/network-details/network/
           // ...
         },
-        // bridge: 'https://bridge.walletconnect.org',
+        bridge: 'https://bridge.walletconnect.org',
       })
 
       var connectWC = async () => {
@@ -138,7 +164,7 @@
         line-height: 1;
         color: #fff;
         text-decoration: navajowhite;
-        background: #262222;
+        background: #9d8989;
         border: none;
       }
 
@@ -149,7 +175,7 @@
         font-size: 14px;
         font-weight: 600;
         line-height: 1;
-        color: #262626;
+        color: #072b81;
         outline: none;
       }
 
@@ -166,7 +192,6 @@
         font-weight: 900;
         margin-bottom: 3rem;
       }
-
 
       .footer-logo .text-logo {
         color: #fff;
@@ -189,7 +214,7 @@
       }
 
       .paymentCard .donate-btn {
-        background: #ff5a00;
+        background: #158cd6;
         color: #fff;
         padding: 15px;
         width: 100%;
@@ -200,7 +225,7 @@
       }
 
       .paymentCard .donate-btn:hover {
-        background: #af3d00;
+        background: #158cd6;
       }
 
       .paymentCard .wallet-title {
@@ -311,7 +336,52 @@
 
               <h4 class="wallet-title mt-4">Connect Wallet to Donate</h4>
               <hr />
-              <button onclick="connectWC()" class="donate-btn">Donate</button>
+              <button
+                type="button"
+                class="donate-btn"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Click here to Donate
+              </button>
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Thank you for Donating
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <h4>Donate with Enthereum</h4>
+                      <p>Copy the wallet address to donate</p>
+                      <div class="copyWalletAddress">
+                        <div id="isCopied">Address copied ✔</div>
+                        <div class="addressFormControl">
+                          <input type="text" value="0xdeE0A297544FFC1B405Eb24eABA19C47C666c8Ee" id="walletAddress" />
+                          <button onClick="copyWallet()">Copy Address</button>
+                        </div>
+                      </div>
+                      <button onclick="connectWC()" class="donate-btn">Connect Wallet</button>  
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -331,7 +401,9 @@
                       width="50"
                       alt=""
                     />
-                    <h4 class="text-logo footLogo">Building<span>Bridges</span></h4>
+                    <h4 class="text-logo footLogo">
+                      Building<span>Bridges</span>
+                    </h4>
                   </a>
                 </h2>
                 <p>
@@ -396,7 +468,7 @@
                   </li>
                   <li>
                     <i class="fa fa-map-marker"></i
-                    ><span>Main Str. no 45-46, b3, 56832, Los Angeles, CA</span>
+                    ><span>20 Newcourt St, London NW8 7AA, United Kingdom</span>
                   </li>
                 </ul>
               </div>
@@ -559,6 +631,16 @@
       src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
       integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
       data-cf-beacon='{"rayId":"6eab0b456ec61e89","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}'
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
       crossorigin="anonymous"
     ></script>
   </body>
